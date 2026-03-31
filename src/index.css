@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ============================================
+   CIRRUX DESIGN TOKENS
+   Based on brief.md — clean, minimal, Superhuman-inspired
+
+   Tailwind v4 maps @theme variables to utility classes:
+   --color-*  → bg-*, text-*, border-*
+   --text-*   → text-* (font-size)
+   --font-*   → font-* (font-family)
+   --radius-* → rounded-*
+   --shadow-* → shadow-*
+   --spacing   → p-*, m-*, gap-*, w-*, h-* (base unit)
+   ============================================ */
+
+@theme {
+  /* --- Spacing base unit (4px grid) --- */
+  --spacing: 4px;
+
+  /* --- Typography --- */
+  --font-sans: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-md: 15px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+
+  /* --- Soft neutral palette --- */
+  --color-white: #ffffff;
+  --color-gray-50: #faf9f8;
+  --color-gray-100: #f4f3f2;
+  --color-gray-200: #ebe8e5;
+  --color-gray-300: #dbd7d3;
+  --color-gray-400: #b4afaa;
+  --color-gray-500: #88837e;
+  --color-gray-600: #6f6b67;
+  --color-gray-700: #44423f;
+  --color-gray-800: #33312f;
+  --color-gray-900: #1d1c1b;
+
+  /* --- Accent — neutral text tone + subtle selected-row background --- */
+  --color-accent: #1d1c1b;
+  --color-accent-light: #44423f;
+  --color-accent-muted: #faf9f8;
+
+  /* --- Semantic colors --- */
+  --color-success: #16a34a;
+  --color-success-light: #dcfce7;
+  --color-error: #dc2626;
+  --color-error-light: #fef2f2;
+  --color-warning: #d97706;
+  --color-warning-light: #fef9c3;
+
+  /* --- Border radius --- */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+
+  /* --- Shadows — subtle, no hard box-shadows --- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+html {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-gray-900);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .sidebar-offset-center {
+    transform: translateX(calc(var(--sidebar-width, 0px) / -2));
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Focus ring — keyboard accessibility without visual clutter */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth scrolling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-300) transparent;
+}
