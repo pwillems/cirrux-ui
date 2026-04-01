@@ -32,7 +32,7 @@ export function MailboxesSection() {
         {mailboxes.map((mb) => (
           <div
             key={mb.id}
-            className="flex items-center justify-between rounded-lg shadow-card bg-white px-5 py-4"
+            className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
           >
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">

@@ -19,7 +19,7 @@ export function SyncsSection() {
       </h1>
 
       {/* Auto-sync toggle */}
-      <div className="mb-6 rounded-lg shadow-card bg-white p-6">
+      <div className="mb-6 rounded-lg shadow-card bg-surface p-6">
         <Toggle
           checked={autoSync}
           onChange={setAutoSync}
@@ -33,7 +33,7 @@ export function SyncsSection() {
         {syncAccounts.map((sync) => (
           <div
             key={sync.id}
-            className="flex items-center justify-between rounded-lg shadow-card bg-white px-5 py-4"
+            className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
           >
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">

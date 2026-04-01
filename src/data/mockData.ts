@@ -274,18 +274,6 @@ export const emails: Email[] = [
     hasAttachment: true,
   },
   {
-    id: "mail-017",
-    from: { name: "Kay Evers", email: "hi@kayevers.nl" },
-    to: kayInbox,
-    subject: "Dit is een test",
-    preview: "Hey, dit is een test e-mail om te kijken of alles werkt...",
-    body: "Hey,\n\nDit is een test e-mail om te kijken of alles werkt.\n\nGroet,\nKay",
-    date: "25 Mar",
-    read: true,
-    starred: false,
-    hasAttachment: false,
-  },
-  {
     id: "mail-018",
     from: { name: "Framer", email: "updates@framer.com" },
     to: kayInbox,
@@ -334,44 +322,6 @@ export const emails: Email[] = [
     read: true,
     starred: false,
     hasAttachment: true,
-  },
-  {
-    id: "mail-022",
-    from: { name: "Kay Evers", email: "hi@kayevers.nl" },
-    to: kayInbox,
-    subject: "Re: Test 2",
-    preview: "Test back. Looks like replies are threading correctly now.",
-    body: "Test back.\n\nLooks like replies are threading correctly now.\n\nKay",
-    date: "23 Mar",
-    read: true,
-    starred: false,
-    hasAttachment: false,
-    threadMessageCount: 2,
-    threadParticipants: ["me", "Kay Evers"],
-  },
-  {
-    id: "mail-023",
-    from: { name: "kay@invalley.com", email: "kay@invalley.com" },
-    to: kayInbox,
-    subject: "Dit is een test",
-    preview: "Nog een test vanuit een ander account.",
-    body: "Nog een test vanuit een ander account.",
-    date: "23 Mar",
-    read: true,
-    starred: false,
-    hasAttachment: false,
-  },
-  {
-    id: "mail-024",
-    from: { name: "hi@kayevers.nl", email: "hi@kayevers.nl" },
-    to: kayInbox,
-    subject: "Test",
-    preview: "Earlier test message...",
-    body: "Earlier test message.",
-    date: "23 Mar",
-    read: true,
-    starred: false,
-    hasAttachment: false,
   },
   {
     id: "mail-025",
@@ -655,36 +605,6 @@ export const threads: Thread[] = [
       },
     ],
   },
-  {
-    id: "thread-test-2",
-    subject: "Test 2",
-    messages: [
-      {
-        id: "mail-022-a",
-        from: { name: "Kay", email: "kay@evrs.xyz" },
-        to: [{ name: "hi@kayevers.nl", email: "hi@kayevers.nl" }],
-        subject: "Test 2",
-        preview: "Test 2",
-        body: "Test 2",
-        date: "23 Mar",
-        read: true,
-        starred: false,
-        hasAttachment: false,
-      },
-      {
-        id: "mail-022",
-        from: { name: "Kay Evers", email: "hi@kayevers.nl" },
-        to: kayInbox,
-        subject: "Re: Test 2",
-        preview: "Test back. Looks like replies are threading correctly now.",
-        body: "Test back.\n\nLooks like replies are threading correctly now.\n\nOp maandag 23 maart 2026 om 18:44 schreef Kay <kay@evrs.xyz>: Test 2",
-        date: "23 Mar",
-        read: true,
-        starred: false,
-        hasAttachment: false,
-      },
-    ],
-  },
 ];
 
 // --- Profile / Account settings ---
@@ -692,9 +612,9 @@ export const profile = {
   username: "kayev",
   firstName: "Kay",
   lastName: "",
-  recoveryEmail: "hi@kayevers.nl",
+  recoveryEmail: "ops@rivermail.co",
   productUpdates: true,
-  productUpdatesEmail: "hi@kayevers.nl",
+  productUpdatesEmail: "hello@northfield.studio",
 };
 
 // --- Identities ---
@@ -724,22 +644,22 @@ export const signatures: Signature[] = [
 export const mailboxes: Mailbox[] = [
   {
     id: "mb1",
-    email: "kay@evrs.xyz",
+    email: "hello@northfield.studio",
     provider: "Cirrux",
     status: "connected",
     lastSync: "Just now",
   },
   {
     id: "mb2",
-    email: "hi@kayevers.nl",
-    provider: "IMAP",
+    email: "ops@rivermail.co",
+    provider: "Google Workspace",
     status: "connected",
     lastSync: "5 minutes ago",
   },
   {
     id: "mb3",
-    email: "kay@invalley.com",
-    provider: "IMAP",
+    email: "team@foundryhq.io",
+    provider: "Microsoft 365",
     status: "syncing",
     lastSync: "Syncing...",
   },
@@ -747,9 +667,24 @@ export const mailboxes: Mailbox[] = [
 
 // --- Domains ---
 export const domains: Domain[] = [
-  { id: "d1", domain: "evrs.xyz", status: "verified", addedAt: "Jan 2026" },
-  { id: "d2", domain: "kayevers.nl", status: "verified", addedAt: "Feb 2026" },
-  { id: "d3", domain: "invalley.com", status: "pending", addedAt: "Mar 2026" },
+  {
+    id: "d1",
+    domain: "northfield.studio",
+    status: "verified",
+    addedAt: "Jan 2026",
+  },
+  {
+    id: "d2",
+    domain: "rivermail.co",
+    status: "verified",
+    addedAt: "Feb 2026",
+  },
+  {
+    id: "d3",
+    domain: "foundryhq.io",
+    status: "pending",
+    addedAt: "Mar 2026",
+  },
 ];
 
 // --- Settings sidebar navigation ---

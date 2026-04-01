@@ -31,7 +31,7 @@ export function ProfileSection() {
       </h1>
 
       {/* Account info card */}
-      <div className="rounded-lg shadow-card bg-white">
+      <div className="rounded-lg shadow-card bg-surface">
         <div className="flex flex-col gap-5 p-6">
           <Input
             label="Username"
@@ -67,7 +67,7 @@ export function ProfileSection() {
         <h2 className="mb-4 text-md font-semibold tracking-[0.01em] text-gray-900">
           Product Updates
         </h2>
-        <div className="rounded-lg shadow-card bg-white p-6">
+        <div className="rounded-lg shadow-card bg-surface p-6">
           <div className="flex items-center justify-between">
             <Toggle
               checked={form.productUpdates}
@@ -77,8 +77,12 @@ export function ProfileSection() {
             />
             <Select
               options={[
-                { value: "hi@kayevers.nl", label: "hi@kayevers.nl" },
-                { value: "kay@evrs.xyz", label: "kay@evrs.xyz" },
+                {
+                  value: "hello@northfield.studio",
+                  label: "hello@northfield.studio",
+                },
+                { value: "ops@rivermail.co", label: "ops@rivermail.co" },
+                { value: "team@foundryhq.io", label: "team@foundryhq.io" },
               ]}
               value={form.productUpdatesEmail}
               onChange={(e) => update("productUpdatesEmail", e.target.value)}

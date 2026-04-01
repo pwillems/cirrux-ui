@@ -5,18 +5,38 @@ import {
   Trash2,
 } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import type { ComposeDraft, ComposePageState, InboxPageState } from "./composeState";
 
 export function ComposePage() {
   const navigate = useNavigate();
-  const [to, setTo] = useState("");
-  const [cc, setCc] = useState("");
-  const [bcc, setBcc] = useState("");
-  const [subject, setSubject] = useState("");
-  const [body, setBody] = useState("");
+  const location = useLocation();
+  const draft = (location.state as ComposePageState | null)?.draft;
+
+  const [to, setTo] = useState(draft?.to ?? "");
+  const [cc, setCc] = useState(draft?.cc ?? "");
+  const [bcc, setBcc] = useState(draft?.bcc ?? "");
+  const [subject, setSubject] = useState(draft?.subject ?? "");
+  const [body, setBody] = useState(draft?.body ?? "");
+
+  const handleSend = () => {
+    const sentDraft: ComposeDraft = {
+      to,
+      cc,
+      bcc,
+      subject,
+      body,
+    };
+
+    navigate("/", {
+      state: {
+        sentDraft,
+      } satisfies InboxPageState,
+    });
+  };
 
   return (
-    <div className="sidebar-offset-center mx-auto w-full max-w-[60rem] px-6 py-6">
+    <div className="sidebar-offset-center mx-auto w-full max-w-[60rem] px-4 py-4 md:px-6 md:py-6">
         <div className="mb-6 flex items-center gap-3">
           <button
             onClick={() => navigate("/")}
@@ -39,7 +59,7 @@ export function ComposePage() {
             { label: "Subject", value: subject, onChange: setSubject },
           ].map(({ label, value, onChange }) => (
             <div key={label} className="flex items-center gap-3">
-              <label className="w-16 shrink-0 text-base text-gray-400">
+              <label className="w-12 shrink-0 text-sm text-gray-400 md:w-16 md:text-base">
                 {label}
               </label>
               <input
@@ -62,7 +82,11 @@ export function ComposePage() {
 
         {/* Bottom bar */}
         <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
-          <button className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors cursor-pointer">
+          <button
+            type="button"
+            onClick={handleSend}
+            className="text-base font-medium text-gray-700 transition-colors hover:text-gray-900 cursor-pointer"
+          >
             Send
           </button>
           <div className="flex items-center gap-1 text-gray-400">

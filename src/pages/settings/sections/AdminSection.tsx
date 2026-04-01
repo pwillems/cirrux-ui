@@ -18,7 +18,7 @@ export function AdminSection() {
       </h1>
 
       {/* General preferences */}
-      <div className="rounded-lg shadow-card bg-white p-6">
+      <div className="rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center gap-2">
           <Settings size={16} className="text-gray-400" />
           <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">
@@ -52,7 +52,7 @@ export function AdminSection() {
       </div>
 
       {/* Mail behavior */}
-      <div className="mt-6 rounded-lg shadow-card bg-white p-6">
+      <div className="mt-6 rounded-lg shadow-card bg-surface p-6">
         <h2 className="mb-4 text-md font-semibold tracking-[0.01em] text-gray-900">
           Mail behavior
         </h2>
@@ -79,7 +79,7 @@ export function AdminSection() {
       </div>
 
       {/* Danger zone */}
-      <div className="mt-6 rounded-lg border border-error/20 bg-white p-6">
+      <div className="mt-6 rounded-lg border border-error/20 bg-surface p-6">
         <h2 className="mb-2 text-md font-semibold text-error">
           Danger zone
         </h2>

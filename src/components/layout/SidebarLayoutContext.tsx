@@ -3,6 +3,8 @@ import { createContext, useContext } from "react";
 interface SidebarLayoutContextValue {
   collapsed: boolean;
   toggleCollapsed: () => void;
+  mobileOpen: boolean;
+  setMobileOpen: (open: boolean) => void;
 }
 
 export const SidebarLayoutContext =

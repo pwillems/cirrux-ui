@@ -16,7 +16,7 @@ export function SecuritySection() {
       </h1>
 
       {/* Password */}
-      <div className="rounded-lg shadow-card bg-white p-6">
+      <div className="rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center gap-2">
           <Key size={16} className="text-gray-400" />
           <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">
@@ -47,7 +47,7 @@ export function SecuritySection() {
       </div>
 
       {/* Two-factor authentication */}
-      <div className="mt-6 rounded-lg shadow-card bg-white p-6">
+      <div className="mt-6 rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center gap-2">
           <Smartphone size={16} className="text-gray-400" />
           <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">
@@ -69,7 +69,7 @@ export function SecuritySection() {
       </div>
 
       {/* Sessions */}
-      <div className="mt-6 rounded-lg shadow-card bg-white p-6">
+      <div className="mt-6 rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center gap-2">
           <Shield size={16} className="text-gray-400" />
           <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">

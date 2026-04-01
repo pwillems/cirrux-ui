@@ -35,7 +35,7 @@ export function Select({
             border-gray-200 bg-gray-50 px-3 pr-8
             text-base text-gray-900
             transition-colors duration-150
-            focus:border-gray-400 focus:bg-white focus:outline-none
+            focus:border-gray-400 focus:bg-surface focus:outline-none
             ${className}
           `}
           {...props}

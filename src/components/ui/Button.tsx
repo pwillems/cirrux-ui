@@ -14,11 +14,11 @@ const variantClasses: Record<Variant, string> = {
   primary:
     "bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700",
   secondary:
-    "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 active:bg-gray-100",
+    "bg-surface text-gray-700 border border-gray-200 hover:bg-gray-50 active:bg-gray-100",
   ghost:
     "bg-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-100 active:bg-gray-200",
   danger:
-    "bg-white text-error border border-gray-200 hover:bg-error-light active:bg-red-100",
+    "bg-surface text-error border border-gray-200 hover:bg-error-light active:bg-red-100",
 };
 
 const sizeClasses: Record<Size, string> = {

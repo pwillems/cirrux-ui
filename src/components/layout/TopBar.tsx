@@ -6,7 +6,7 @@ export function TopBar() {
   const isSettings = location.pathname.startsWith("/settings");
 
   return (
-    <header className="sticky top-0 z-10 flex h-12 items-center justify-between border-b border-black/[0.04] bg-white/80 px-4 backdrop-blur-xl">
+    <header className="sticky top-0 z-10 flex h-12 items-center justify-between border-b border-black/[0.04] bg-surface/80 px-4 backdrop-blur-xl">
       {/* Left — mail icon / home link */}
       <Link
         to="/"

@@ -36,7 +36,7 @@ export function Input({
           ${
             error
               ? "border-error bg-error-light focus:border-error"
-              : "border-gray-200 bg-gray-50 focus:border-gray-400 focus:bg-white"
+              : "border-gray-200 bg-gray-50 focus:border-gray-400 focus:bg-surface"
           }
           focus:outline-none
           ${className}

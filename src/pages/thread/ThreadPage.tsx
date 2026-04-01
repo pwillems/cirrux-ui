@@ -24,7 +24,7 @@ export function ThreadPage() {
   const subject = thread?.subject || messages[0]?.subject || "Email";
 
   return (
-    <div className="sidebar-offset-center mx-auto w-full max-w-[60rem] px-6 py-6">
+    <div className="sidebar-offset-center mx-auto w-full max-w-[60rem] px-4 py-4 md:px-6 md:py-6">
         {/* Back + subject */}
         <div className="mb-4 flex items-start gap-3">
           <button
@@ -34,7 +34,7 @@ export function ThreadPage() {
           >
             <ArrowLeft size={16} />
           </button>
-          <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
+          <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
             {subject}
           </h1>
         </div>
@@ -52,7 +52,7 @@ export function ThreadPage() {
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-0.5 text-gray-400">
+          <div className="hidden md:flex items-center gap-0.5 text-gray-400">
             <button
               className="flex h-8 w-8 items-center justify-center rounded-md hover:bg-gray-100 hover:text-gray-600 transition-colors cursor-pointer"
               aria-label="Previous"
@@ -74,19 +74,19 @@ export function ThreadPage() {
             msg ? (
               <article
                 key={msg.id}
-                className="rounded-lg shadow-card bg-white"
+                className="rounded-lg shadow-card bg-surface"
               >
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 pt-4 pb-2">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-base font-medium text-gray-900">
+                <div className="flex items-center justify-between px-4 pt-3 pb-2 md:px-5 md:pt-4">
+                  <div className="flex items-baseline gap-2 min-w-0">
+                    <span className="text-base font-medium text-gray-900 shrink-0">
                       {msg.from.name}
                     </span>
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-gray-400 truncate hidden sm:inline">
                       to {msg.to[0]?.email || msg.to[0]?.name}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 shrink-0">
                     <button
                       className="flex h-7 w-7 items-center justify-center rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors cursor-pointer"
                       aria-label="Reply"
@@ -99,14 +99,14 @@ export function ThreadPage() {
                     >
                       <Forward size={16} />
                     </button>
-                    <span className="ml-1 text-sm text-gray-400">
+                    <span className="ml-1 text-sm text-gray-400 hidden sm:inline">
                       {msg.date}
                     </span>
                   </div>
                 </div>
 
                 {/* Body */}
-                <div className="px-5 pb-4 pt-1">
+                <div className="px-4 pb-4 pt-1 md:px-5">
                   <p className="whitespace-pre-wrap text-base text-gray-600 leading-relaxed">
                     {msg.body}
                   </p>

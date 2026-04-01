@@ -14,7 +14,7 @@ export function BillingSection() {
       </h1>
 
       {/* Current plan */}
-      <div className="rounded-lg shadow-card bg-white p-6">
+      <div className="rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center justify-between">
           <div>
             <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">
@@ -44,7 +44,7 @@ export function BillingSection() {
       </div>
 
       {/* Payment method */}
-      <div className="mt-6 rounded-lg shadow-card bg-white p-6">
+      <div className="mt-6 rounded-lg shadow-card bg-surface p-6">
         <div className="mb-4 flex items-center gap-2">
           <CreditCard size={16} className="text-gray-400" />
           <h2 className="text-md font-semibold tracking-[0.01em] text-gray-900">
@@ -68,7 +68,7 @@ export function BillingSection() {
           {invoices.map((inv) => (
             <div
               key={inv.id}
-              className="flex items-center justify-between rounded-lg shadow-card bg-white px-5 py-3"
+              className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-3"
             >
               <div className="flex items-center gap-3">
                 <FileText size={16} className="text-gray-400" />

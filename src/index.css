@@ -28,6 +28,9 @@
   --text-xl: 22px;
   --text-2xl: 28px;
 
+  /* --- Surface — primary background token --- */
+  --color-surface: #ffffff;
+
   /* --- Soft neutral palette --- */
   --color-white: #ffffff;
   --color-gray-50: #faf9f8;
@@ -76,14 +79,63 @@ html {
   font-size: 14px;
   line-height: 1.5;
   color: var(--color-gray-900);
-  background: var(--color-white);
+  background: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   DARK MODE
+   Remaps the gray scale so all existing utilities
+   (bg-gray-*, text-gray-*, border-gray-*) adapt
+   automatically. Only bg-white → bg-surface needs
+   per-component changes.
+   ============================================ */
+
+[data-theme="dark"] {
+  --color-surface: #1a1915;
+
+  --color-gray-50: #211f1b;
+  --color-gray-100: #2a2824;
+  --color-gray-200: #3a3834;
+  --color-gray-300: #4d4a46;
+  --color-gray-400: #706c67;
+  --color-gray-500: #8f8b86;
+  --color-gray-600: #a8a49f;
+  --color-gray-700: #c2bfba;
+  --color-gray-800: #dad7d3;
+  --color-gray-900: #eeedec;
+
+  --color-accent: #eeedec;
+  --color-accent-light: #c2bfba;
+  --color-accent-muted: #252320;
+
+  --color-success-light: #152315;
+  --color-error-light: #271414;
+  --color-warning-light: #272114;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+}
+
+@keyframes undo-toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.undo-toast-progress {
+  animation-name: undo-toast-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
 }
 
 @media (min-width: 1024px) {
