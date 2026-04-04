@@ -8,11 +8,13 @@ export * from "../ui/Input";
 export * from "../ui/KbdShortcut";
 export * from "../ui/Select";
 export * from "../ui/StatusMessage";
+export * from "../ui/Textarea";
 export * from "../ui/Toggle";
 export * from "../ui/UndoToast";
 
 // New atoms
 export * from "./Avatar";
+export * from "./Collapsible";
 export * from "./IconButton";
 export * from "./PageTitle";
 export * from "./SectionTitle";

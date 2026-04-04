@@ -36,15 +36,17 @@ export interface SidebarNavGroup {
 interface SidebarPrimaryAction {
   label: string;
   icon: ReactNode;
-  href: string;
+  href?: string;
+  onClick?: () => void;
 }
 
 interface SidebarProps {
   primaryAction: SidebarPrimaryAction;
   groups: SidebarNavGroup[];
+  footer?: ReactNode;
 }
 
-export function Sidebar({ primaryAction, groups }: SidebarProps) {
+export function Sidebar({ primaryAction, groups, footer }: SidebarProps) {
   const { collapsed, toggleCollapsed, mobileOpen, setMobileOpen } =
     useSidebarLayout();
   const [appMenuOpen, setAppMenuOpen] = useState(false);
@@ -133,24 +135,41 @@ export function Sidebar({ primaryAction, groups }: SidebarProps) {
       </div>
 
       {/* Primary action */}
-      <Link
-        to={primaryAction.href}
-        aria-label={primaryAction.label}
-        title={collapsed && !mobileOpen ? primaryAction.label : undefined}
-        onClick={() => setMobileOpen(false)}
-        className={`
-          mb-4 flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
-          max-md:gap-2.5
-          ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
-        `}
-      >
-        <span className="opacity-70">{primaryAction.icon}</span>
-        {(!collapsed || mobileOpen) && primaryAction.label}
-      </Link>
+      {primaryAction.href ? (
+        <Link
+          to={primaryAction.href}
+          aria-label={primaryAction.label}
+          title={collapsed && !mobileOpen ? primaryAction.label : undefined}
+          onClick={() => setMobileOpen(false)}
+          className={`
+            mb-4 flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
+            max-md:gap-2.5
+            ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
+          `}
+        >
+          <span className="opacity-70">{primaryAction.icon}</span>
+          {(!collapsed || mobileOpen) && primaryAction.label}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          aria-label={primaryAction.label}
+          title={collapsed && !mobileOpen ? primaryAction.label : undefined}
+          onClick={() => { setMobileOpen(false); primaryAction.onClick?.(); }}
+          className={`
+            mb-4 flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900 cursor-pointer
+            max-md:gap-2.5
+            ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
+          `}
+        >
+          <span className="opacity-70">{primaryAction.icon}</span>
+          {(!collapsed || mobileOpen) && primaryAction.label}
+        </button>
+      )}
 
       {/* Nav groups */}
       <nav
-        className={`flex flex-1 flex-col ${collapsed && !mobileOpen ? "gap-8" : "gap-6"}`}
+        className={`flex flex-1 flex-col overflow-y-auto ${collapsed && !mobileOpen ? "gap-8" : "gap-6"}`}
       >
         {groups.map((group) => (
           <div key={group.label}>
@@ -228,6 +247,13 @@ export function Sidebar({ primaryAction, groups }: SidebarProps) {
           </div>
         ))}
       </nav>
+
+      {/* Footer slot */}
+      {footer && (
+        <div className="mt-4 border-t border-gray-100 pt-4">
+          {footer}
+        </div>
+      )}
     </div>
   );
 
