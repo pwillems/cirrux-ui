@@ -1,0 +1,8 @@
+import{j as e}from"./index-CQ8HD40T.js";import{C as m}from"./chevron-down-CBtVjlIh.js";import"./createLucideIcon-CyW1AjLN.js";function o({label:t,options:i,hint:n,className:l="",id:c,...d}){const r=c||(t==null?void 0:t.toLowerCase().replace(/\s+/g,"-"));return e.jsxs("div",{className:"flex flex-col gap-1.5",children:[t&&e.jsx("label",{htmlFor:r,className:"text-sm font-medium text-gray-700",children:t}),e.jsxs("div",{className:"relative",children:[e.jsx("select",{id:r,className:`
+            h-9 w-full appearance-none rounded-md border
+            border-gray-200 bg-gray-50 px-3 pr-8
+            text-base text-gray-900
+            transition-colors duration-150
+            focus:border-gray-400 focus:bg-surface focus:outline-none
+            ${l}
+          `,...d,children:i.map(s=>e.jsx("option",{value:s.value,children:s.label},s.value))}),e.jsx(m,{size:14,className:"pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400"})]}),n&&e.jsx("p",{className:"text-xs text-gray-400",children:n})]})}const a=[{value:"utc",label:"UTC"},{value:"america-new_york",label:"America / New York"},{value:"europe-amsterdam",label:"Europe / Amsterdam"},{value:"asia-tokyo",label:"Asia / Tokyo"}],f=()=>e.jsx("div",{className:"w-80",children:e.jsx(o,{options:a})}),h=()=>e.jsx("div",{className:"w-80",children:e.jsx(o,{label:"Timezone",options:a})}),j=()=>e.jsx("div",{className:"w-80",children:e.jsx(o,{label:"Timezone",options:a,hint:"Used for scheduling and notifications."})});typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{f as Default,j as WithHint,h as WithLabel};

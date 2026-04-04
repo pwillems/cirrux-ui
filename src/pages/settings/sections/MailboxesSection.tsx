@@ -1,65 +1,53 @@
-import { Button } from "../../../components/ui/Button";
-import { Badge } from "../../../components/ui/Badge";
+import { Button } from "../../../components/atoms";
+import { Badge } from "../../../components/atoms";
+import { PageHeader } from "../../../components/molecules/PageHeader";
+import { ListItem } from "../../../components/molecules/ListItem";
+import { IconButton } from "../../../components/atoms/IconButton";
 import { mailboxes } from "../../../data/mockData";
 import { Mail, Plus, RefreshCw } from "lucide-react";
 
-const statusBadge = (status: string) => {
-  switch (status) {
-    case "connected":
-      return <Badge variant="success">Connected</Badge>;
-    case "error":
-      return <Badge variant="error">Error</Badge>;
-    case "syncing":
-      return <Badge variant="warning">Syncing</Badge>;
-    default:
-      return <Badge>{status}</Badge>;
-  }
+const statusVariant = (
+  status: string
+): "success" | "error" | "warning" | "default" => {
+  if (status === "connected") return "success";
+  if (status === "error") return "error";
+  if (status === "syncing") return "warning";
+  return "default";
 };
 
 export function MailboxesSection() {
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
-          Mailboxes
-        </h1>
-        <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
-          Add mailbox
-        </Button>
-      </div>
+      <PageHeader
+        title="Mailboxes"
+        action={
+          <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
+            Add mailbox
+          </Button>
+        }
+      />
 
       <div className="flex flex-col gap-3">
         {mailboxes.map((mb) => (
-          <div
+          <ListItem
             key={mb.id}
-            className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">
+            leading={
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gray-100">
                 <Mail size={16} className="text-gray-500" />
               </div>
-              <div>
-                <p className="text-base font-medium text-gray-900">
-                  {mb.email}
-                </p>
-                <p className="text-sm text-gray-400">
-                  {mb.provider} — {mb.lastSync}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              {statusBadge(mb.status)}
-              <button
-                className="flex h-8 w-8 items-center justify-center rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
-                aria-label="Sync now"
-              >
-                <RefreshCw size={14} />
-              </button>
-              <Button variant="ghost" size="sm">
-                Settings
-              </Button>
-            </div>
-          </div>
+            }
+            title={mb.email}
+            subtitle={`${mb.provider} — ${mb.lastSync}`}
+            trailing={
+              <>
+                <Badge variant={statusVariant(mb.status)}>
+                  {mb.status.charAt(0).toUpperCase() + mb.status.slice(1)}
+                </Badge>
+                <IconButton icon={<RefreshCw size={14} />} label="Sync now" />
+                <Button variant="ghost" size="sm">Settings</Button>
+              </>
+            }
+          />
         ))}
       </div>
     </div>

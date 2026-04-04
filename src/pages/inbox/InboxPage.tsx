@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Archive, Send, Trash2 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { UndoToast } from "../../components/ui/UndoToast";
+import { UndoToast } from "../../components/atoms";
+import { PageTitle } from "../../components/atoms/PageTitle";
 import { emails, type Email } from "../../data/mockData";
 import type { ComposeDraft, InboxPageState } from "../compose/composeState";
 import { EmailRow } from "./EmailRow";
@@ -228,11 +229,9 @@ useEffect(() => {
   }, [composeState?.sentDraft, location.pathname, navigate]);
 
   return (
-    <div className="sidebar-offset-center mx-auto w-full max-w-full overflow-x-hidden pb-32 md:max-w-[60rem]">
-      <div className="px-4 pt-4 pb-2 md:px-6 md:pt-6">
-        <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:text-2xl">
-          Inbox
-        </h1>
+    <div className="w-full overflow-x-hidden pb-32">
+      <div className="px-2 pt-4 pb-2 md:px-3 md:pt-6">
+        <PageTitle>Inbox</PageTitle>
       </div>
 
       <div className="flex flex-col">
@@ -253,7 +252,7 @@ useEffect(() => {
 
       {groupedEmails.lastWeek.length > 0 && (
         <>
-          <div className="px-4 pt-4 pb-1 md:px-6">
+          <div className="px-2 pt-4 pb-1 md:px-3">
             <span className="text-sm text-gray-400">Last 7 days</span>
           </div>
           <div className="flex flex-col">
@@ -276,7 +275,7 @@ useEffect(() => {
 
       {groupedEmails.earlier.length > 0 && (
         <>
-          <div className="px-4 pt-4 pb-1 md:px-6">
+          <div className="px-2 pt-4 pb-1 md:px-3">
             <span className="text-sm text-gray-400">Earlier</span>
           </div>
           <div className="flex flex-col">

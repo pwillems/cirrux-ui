@@ -1,6 +1,9 @@
-import { Badge } from "../../../components/ui/Badge";
-import { Button } from "../../../components/ui/Button";
-import { Toggle } from "../../../components/ui/Toggle";
+import { Badge } from "../../../components/atoms";
+import { Button } from "../../../components/atoms";
+import { Toggle } from "../../../components/atoms";
+import { CardSection } from "../../../components/organisms/CardSection";
+import { PageTitle } from "../../../components/atoms/PageTitle";
+import { ListItem } from "../../../components/molecules/ListItem";
 import { RefreshCw } from "lucide-react";
 import { useState } from "react";
 
@@ -14,48 +17,40 @@ export function SyncsSection() {
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-semibold tracking-tight text-gray-900">
-        Syncs
-      </h1>
+      <PageTitle>Syncs</PageTitle>
 
-      {/* Auto-sync toggle */}
-      <div className="mb-6 rounded-lg shadow-card bg-surface p-6">
-        <Toggle
-          checked={autoSync}
-          onChange={setAutoSync}
-          label="Automatic sync"
-          description="Automatically sync contacts and calendar in the background"
-        />
-      </div>
+      <div className="mt-6 flex flex-col gap-6">
+        {/* Auto-sync toggle */}
+        <CardSection>
+          <Toggle
+            checked={autoSync}
+            onChange={setAutoSync}
+            label="Automatic sync"
+            description="Automatically sync contacts and calendar in the background"
+          />
+        </CardSection>
 
-      {/* Sync accounts */}
-      <div className="flex flex-col gap-3">
-        {syncAccounts.map((sync) => (
-          <div
-            key={sync.id}
-            className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">
-                <RefreshCw size={16} className="text-gray-500" />
-              </div>
-              <div>
-                <p className="text-base font-medium text-gray-900">
-                  {sync.name}
-                </p>
-                <p className="text-sm text-gray-400">
-                  Last synced {sync.lastSync}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Badge variant="success">Connected</Badge>
-              <Button variant="ghost" size="sm">
-                Disconnect
-              </Button>
-            </div>
-          </div>
-        ))}
+        {/* Sync accounts */}
+        <div className="flex flex-col gap-3">
+          {syncAccounts.map((sync) => (
+            <ListItem
+              key={sync.id}
+              leading={
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gray-100">
+                  <RefreshCw size={16} className="text-gray-500" />
+                </div>
+              }
+              title={sync.name}
+              subtitle={`Last synced ${sync.lastSync}`}
+              trailing={
+                <>
+                  <Badge variant="success">Connected</Badge>
+                  <Button variant="ghost" size="sm">Disconnect</Button>
+                </>
+              }
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

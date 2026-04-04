@@ -1,0 +1,1 @@
+import{j as t}from"./index-CQ8HD40T.js";import{S as e}from"./SectionTitle-lPwxf7PH.js";const i=()=>t.jsx(e,{children:"Profile"}),d=()=>t.jsx(e,{children:"Two-factor Authentication"});typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{i as Default,d as LongTitle};

@@ -1,6 +1,8 @@
-import { Button } from "../../../components/ui/Button";
-import { Badge } from "../../../components/ui/Badge";
-import { EmptyState } from "../../../components/ui/EmptyState";
+import { Button } from "../../../components/atoms";
+import { Badge } from "../../../components/atoms";
+import { EmptyState } from "../../../components/atoms";
+import { PageHeader } from "../../../components/molecules/PageHeader";
+import { ListItem } from "../../../components/molecules/ListItem";
 import { Layers, Plus } from "lucide-react";
 
 const workspaces = [
@@ -15,42 +17,34 @@ const workspaces = [
 export function WorkspacesSection() {
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
-          Workspaces
-        </h1>
-        <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
-          New workspace
-        </Button>
-      </div>
+      <PageHeader
+        title="Workspaces"
+        action={
+          <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
+            New workspace
+          </Button>
+        }
+      />
 
       {workspaces.length > 0 ? (
         <div className="flex flex-col gap-3">
           {workspaces.map((ws) => (
-            <div
+            <ListItem
               key={ws.id}
-              className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">
+              leading={
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gray-100">
                   <Layers size={16} className="text-gray-500" />
                 </div>
-                <div>
-                  <p className="text-base font-medium text-gray-900">
-                    {ws.name}
-                  </p>
-                  <p className="text-sm text-gray-400">
-                    {ws.members} member{ws.members !== 1 && "s"}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Badge>{ws.plan}</Badge>
-                <Button variant="ghost" size="sm">
-                  Manage
-                </Button>
-              </div>
-            </div>
+              }
+              title={ws.name}
+              subtitle={`${ws.members} member${ws.members !== 1 ? "s" : ""}`}
+              trailing={
+                <>
+                  <Badge>{ws.plan}</Badge>
+                  <Button variant="ghost" size="sm">Manage</Button>
+                </>
+              }
+            />
           ))}
         </div>
       ) : (

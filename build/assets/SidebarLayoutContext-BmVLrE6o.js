@@ -1,0 +1,1 @@
+import{r as e}from"./index-CQ8HD40T.js";const o=e.createContext(null);function n(){const t=e.useContext(o);if(!t)throw new Error("useSidebarLayout must be used within AppShell");return t}export{o as S,n as u};

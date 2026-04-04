@@ -1,0 +1,1 @@
+import{j as t}from"./index-CQ8HD40T.js";import{P as e}from"./PageTitle-Cax7X5g5.js";const i=()=>t.jsx(e,{children:"Settings"}),d=()=>t.jsx(e,{children:"Workspace & Organization Settings"});typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{i as Default,d as LongTitle};

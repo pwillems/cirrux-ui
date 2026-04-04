@@ -4,6 +4,8 @@ import { InboxLayout } from "./pages/inbox/InboxLayout";
 import { InboxPage } from "./pages/inbox/InboxPage";
 import { ThreadPage } from "./pages/thread/ThreadPage";
 import { ComposePage } from "./pages/compose/ComposePage";
+import { SearchPage } from "./pages/search/SearchPage";
+import { FocusedLayout } from "./components/templates/FocusedLayout";
 import { SettingsLayout } from "./pages/settings/SettingsLayout";
 import { ProfileSection } from "./pages/settings/sections/ProfileSection";
 import { SecuritySection } from "./pages/settings/sections/SecuritySection";
@@ -20,11 +22,20 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<AppShell />}>
-          {/* Mail */}
-          <Route element={<InboxLayout />}>
+          {/* Mail — email list */}
+          <Route element={<InboxLayout contentClassName="flex-1 px-2 md:px-3" />}>
             <Route path="/" element={<InboxPage />} />
+          </Route>
+
+          {/* Mail — content pages */}
+          <Route element={<InboxLayout />}>
             <Route path="/thread/:id" element={<ThreadPage />} />
             <Route path="/compose" element={<ComposePage />} />
+          </Route>
+
+          {/* Search — focused full-width layout, no sidebar */}
+          <Route element={<FocusedLayout />}>
+            <Route path="/search" element={<SearchPage />} />
           </Route>
 
           {/* Settings */}

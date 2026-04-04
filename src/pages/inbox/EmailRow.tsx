@@ -11,7 +11,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ContextMenu } from "../../components/ui/ContextMenu";
+import { ContextMenu } from "../../components/atoms";
 import type { Email } from "../../data/mockData";
 
 interface EmailRowProps {

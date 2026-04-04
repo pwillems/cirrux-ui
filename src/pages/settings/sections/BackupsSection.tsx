@@ -1,6 +1,10 @@
-import { Button } from "../../../components/ui/Button";
-import { Toggle } from "../../../components/ui/Toggle";
-import { Badge } from "../../../components/ui/Badge";
+import { Button } from "../../../components/atoms";
+import { Toggle } from "../../../components/atoms";
+import { Badge } from "../../../components/atoms";
+import { CardSection } from "../../../components/organisms/CardSection";
+import { PageHeader } from "../../../components/molecules/PageHeader";
+import { ListItem } from "../../../components/molecules/ListItem";
+import { IconButton } from "../../../components/atoms/IconButton";
 import { HardDrive, Download, Plus } from "lucide-react";
 import { useState } from "react";
 
@@ -15,54 +19,47 @@ export function BackupsSection() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
-          Backups
-        </h1>
-        <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
-          Create backup
-        </Button>
-      </div>
+      <PageHeader
+        title="Backups"
+        action={
+          <Button variant="secondary" size="sm" icon={<Plus size={14} />}>
+            Create backup
+          </Button>
+        }
+      />
 
-      {/* Auto backup */}
-      <div className="mb-6 rounded-lg shadow-card bg-surface p-6">
-        <Toggle
-          checked={autoBackup}
-          onChange={setAutoBackup}
-          label="Weekly automatic backups"
-          description="Creates a backup of your mailbox data every week"
-        />
-      </div>
+      <div className="flex flex-col gap-6">
+        {/* Auto backup */}
+        <CardSection>
+          <Toggle
+            checked={autoBackup}
+            onChange={setAutoBackup}
+            label="Weekly automatic backups"
+            description="Creates a backup of your mailbox data every week"
+          />
+        </CardSection>
 
-      {/* Backup list */}
-      <div className="flex flex-col gap-3">
-        {backups.map((backup) => (
-          <div
-            key={backup.id}
-            className="flex items-center justify-between rounded-lg shadow-card bg-surface px-5 py-4"
-          >
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100">
-                <HardDrive size={16} className="text-gray-500" />
-              </div>
-              <div>
-                <p className="text-base font-medium text-gray-900">
-                  {backup.date}
-                </p>
-                <p className="text-sm text-gray-400">{backup.size}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Badge variant="success">Completed</Badge>
-              <button
-                className="flex h-8 w-8 items-center justify-center rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
-                aria-label="Download backup"
-              >
-                <Download size={14} />
-              </button>
-            </div>
-          </div>
-        ))}
+        {/* Backup list */}
+        <div className="flex flex-col gap-3">
+          {backups.map((backup) => (
+            <ListItem
+              key={backup.id}
+              leading={
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gray-100">
+                  <HardDrive size={16} className="text-gray-500" />
+                </div>
+              }
+              title={backup.date}
+              subtitle={backup.size}
+              trailing={
+                <>
+                  <Badge variant="success">Completed</Badge>
+                  <IconButton icon={<Download size={14} />} label="Download backup" />
+                </>
+              }
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

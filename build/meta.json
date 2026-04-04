@@ -1,0 +1,922 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "avatar--all-sizes": {
+      "name": "All sizes",
+      "levels": [
+        "Avatar"
+      ],
+      "locStart": 8,
+      "locEnd": 13,
+      "filePath": "src/components/atoms/Avatar.stories.tsx",
+      "namedExport": "AllSizes",
+      "meta": {}
+    },
+    "avatar--medium": {
+      "name": "Medium",
+      "levels": [
+        "Avatar"
+      ],
+      "locStart": 6,
+      "locEnd": 6,
+      "filePath": "src/components/atoms/Avatar.stories.tsx",
+      "namedExport": "Medium",
+      "meta": {}
+    },
+    "avatar--small": {
+      "name": "Small",
+      "levels": [
+        "Avatar"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/components/atoms/Avatar.stories.tsx",
+      "namedExport": "Small",
+      "meta": {}
+    },
+    "badge--all-variants": {
+      "name": "All variants",
+      "levels": [
+        "Badge"
+      ],
+      "locStart": 12,
+      "locEnd": 19,
+      "filePath": "src/components/atoms/Badge.stories.tsx",
+      "namedExport": "AllVariants",
+      "meta": {}
+    },
+    "badge--default": {
+      "name": "Default",
+      "levels": [
+        "Badge"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/components/atoms/Badge.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "badge--error": {
+      "name": "Error",
+      "levels": [
+        "Badge"
+      ],
+      "locStart": 8,
+      "locEnd": 8,
+      "filePath": "src/components/atoms/Badge.stories.tsx",
+      "namedExport": "Error",
+      "meta": {}
+    },
+    "badge--success": {
+      "name": "Success",
+      "levels": [
+        "Badge"
+      ],
+      "locStart": 6,
+      "locEnd": 6,
+      "filePath": "src/components/atoms/Badge.stories.tsx",
+      "namedExport": "Success",
+      "meta": {}
+    },
+    "badge--warning": {
+      "name": "Warning",
+      "levels": [
+        "Badge"
+      ],
+      "locStart": 10,
+      "locEnd": 10,
+      "filePath": "src/components/atoms/Badge.stories.tsx",
+      "namedExport": "Warning",
+      "meta": {}
+    },
+    "button--all-variants": {
+      "name": "All variants",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 44,
+      "locEnd": 51,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "AllVariants",
+      "meta": {}
+    },
+    "button--danger": {
+      "name": "Danger",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 15,
+      "locEnd": 17,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Danger",
+      "meta": {}
+    },
+    "button--disabled": {
+      "name": "Disabled",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 38,
+      "locEnd": 42,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Disabled",
+      "meta": {}
+    },
+    "button--ghost": {
+      "name": "Ghost",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 13,
+      "locEnd": 13,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Ghost",
+      "meta": {}
+    },
+    "button--primary": {
+      "name": "Primary",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 5,
+      "locEnd": 7,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Primary",
+      "meta": {}
+    },
+    "button--secondary": {
+      "name": "Secondary",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 9,
+      "locEnd": 11,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Secondary",
+      "meta": {}
+    },
+    "button--sizes": {
+      "name": "Sizes",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 30,
+      "locEnd": 36,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "Sizes",
+      "meta": {}
+    },
+    "button--with-icon": {
+      "name": "With icon",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 19,
+      "locEnd": 28,
+      "filePath": "src/components/atoms/Button.stories.tsx",
+      "namedExport": "WithIcon",
+      "meta": {}
+    },
+    "context-menu--default": {
+      "name": "Default",
+      "levels": [
+        "Context menu"
+      ],
+      "locStart": 38,
+      "locEnd": 38,
+      "filePath": "src/components/atoms/ContextMenu.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "empty-state--title-only": {
+      "name": "Title only",
+      "levels": [
+        "Empty state"
+      ],
+      "locStart": 6,
+      "locEnd": 6,
+      "filePath": "src/components/atoms/EmptyState.stories.tsx",
+      "namedExport": "TitleOnly",
+      "meta": {}
+    },
+    "empty-state--with-action": {
+      "name": "With action",
+      "levels": [
+        "Empty state"
+      ],
+      "locStart": 23,
+      "locEnd": 30,
+      "filePath": "src/components/atoms/EmptyState.stories.tsx",
+      "namedExport": "WithAction",
+      "meta": {}
+    },
+    "empty-state--with-description": {
+      "name": "With description",
+      "levels": [
+        "Empty state"
+      ],
+      "locStart": 8,
+      "locEnd": 13,
+      "filePath": "src/components/atoms/EmptyState.stories.tsx",
+      "namedExport": "WithDescription",
+      "meta": {}
+    },
+    "empty-state--with-icon": {
+      "name": "With icon",
+      "levels": [
+        "Empty state"
+      ],
+      "locStart": 15,
+      "locEnd": 21,
+      "filePath": "src/components/atoms/EmptyState.stories.tsx",
+      "namedExport": "WithIcon",
+      "meta": {}
+    },
+    "icon-button--default": {
+      "name": "Default",
+      "levels": [
+        "Icon button"
+      ],
+      "locStart": 5,
+      "locEnd": 7,
+      "filePath": "src/components/atoms/IconButton.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "icon-button--medium": {
+      "name": "Medium",
+      "levels": [
+        "Icon button"
+      ],
+      "locStart": 13,
+      "locEnd": 15,
+      "filePath": "src/components/atoms/IconButton.stories.tsx",
+      "namedExport": "Medium",
+      "meta": {}
+    },
+    "icon-button--multiple-icons": {
+      "name": "Multiple icons",
+      "levels": [
+        "Icon button"
+      ],
+      "locStart": 17,
+      "locEnd": 23,
+      "filePath": "src/components/atoms/IconButton.stories.tsx",
+      "namedExport": "MultipleIcons",
+      "meta": {}
+    },
+    "icon-button--small": {
+      "name": "Small",
+      "levels": [
+        "Icon button"
+      ],
+      "locStart": 9,
+      "locEnd": 11,
+      "filePath": "src/components/atoms/IconButton.stories.tsx",
+      "namedExport": "Small",
+      "meta": {}
+    },
+    "input--default": {
+      "name": "Default",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 4,
+      "locEnd": 8,
+      "filePath": "src/components/atoms/Input.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "input--disabled": {
+      "name": "Disabled",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 38,
+      "locEnd": 42,
+      "filePath": "src/components/atoms/Input.stories.tsx",
+      "namedExport": "Disabled",
+      "meta": {}
+    },
+    "input--with-error": {
+      "name": "With error",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 26,
+      "locEnd": 36,
+      "filePath": "src/components/atoms/Input.stories.tsx",
+      "namedExport": "WithError",
+      "meta": {}
+    },
+    "input--with-hint": {
+      "name": "With hint",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 16,
+      "locEnd": 24,
+      "filePath": "src/components/atoms/Input.stories.tsx",
+      "namedExport": "WithHint",
+      "meta": {}
+    },
+    "input--with-label": {
+      "name": "With label",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 10,
+      "locEnd": 14,
+      "filePath": "src/components/atoms/Input.stories.tsx",
+      "namedExport": "WithLabel",
+      "meta": {}
+    },
+    "kbd-shortcut--all-examples": {
+      "name": "All examples",
+      "levels": [
+        "Kbd shortcut"
+      ],
+      "locStart": 10,
+      "locEnd": 25,
+      "filePath": "src/components/atoms/KbdShortcut.stories.tsx",
+      "namedExport": "AllExamples",
+      "meta": {}
+    },
+    "kbd-shortcut--modifier-key": {
+      "name": "Modifier key",
+      "levels": [
+        "Kbd shortcut"
+      ],
+      "locStart": 8,
+      "locEnd": 8,
+      "filePath": "src/components/atoms/KbdShortcut.stories.tsx",
+      "namedExport": "ModifierKey",
+      "meta": {}
+    },
+    "kbd-shortcut--sequence": {
+      "name": "Sequence",
+      "levels": [
+        "Kbd shortcut"
+      ],
+      "locStart": 6,
+      "locEnd": 6,
+      "filePath": "src/components/atoms/KbdShortcut.stories.tsx",
+      "namedExport": "Sequence",
+      "meta": {}
+    },
+    "kbd-shortcut--single-key": {
+      "name": "Single key",
+      "levels": [
+        "Kbd shortcut"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/components/atoms/KbdShortcut.stories.tsx",
+      "namedExport": "SingleKey",
+      "meta": {}
+    },
+    "page-title--default": {
+      "name": "Default",
+      "levels": [
+        "Page title"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/components/atoms/PageTitle.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "page-title--long-title": {
+      "name": "Long title",
+      "levels": [
+        "Page title"
+      ],
+      "locStart": 6,
+      "locEnd": 8,
+      "filePath": "src/components/atoms/PageTitle.stories.tsx",
+      "namedExport": "LongTitle",
+      "meta": {}
+    },
+    "section-title--default": {
+      "name": "Default",
+      "levels": [
+        "Section title"
+      ],
+      "locStart": 4,
+      "locEnd": 4,
+      "filePath": "src/components/atoms/SectionTitle.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "section-title--long-title": {
+      "name": "Long title",
+      "levels": [
+        "Section title"
+      ],
+      "locStart": 6,
+      "locEnd": 8,
+      "filePath": "src/components/atoms/SectionTitle.stories.tsx",
+      "namedExport": "LongTitle",
+      "meta": {}
+    },
+    "select--default": {
+      "name": "Default",
+      "levels": [
+        "Select"
+      ],
+      "locStart": 11,
+      "locEnd": 15,
+      "filePath": "src/components/atoms/Select.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "select--with-hint": {
+      "name": "With hint",
+      "levels": [
+        "Select"
+      ],
+      "locStart": 23,
+      "locEnd": 31,
+      "filePath": "src/components/atoms/Select.stories.tsx",
+      "namedExport": "WithHint",
+      "meta": {}
+    },
+    "select--with-label": {
+      "name": "With label",
+      "levels": [
+        "Select"
+      ],
+      "locStart": 17,
+      "locEnd": 21,
+      "filePath": "src/components/atoms/Select.stories.tsx",
+      "namedExport": "WithLabel",
+      "meta": {}
+    },
+    "status-message--all-states": {
+      "name": "All states",
+      "levels": [
+        "Status message"
+      ],
+      "locStart": 16,
+      "locEnd": 22,
+      "filePath": "src/components/atoms/StatusMessage.stories.tsx",
+      "namedExport": "AllStates",
+      "meta": {}
+    },
+    "status-message--error": {
+      "name": "Error",
+      "levels": [
+        "Status message"
+      ],
+      "locStart": 12,
+      "locEnd": 14,
+      "filePath": "src/components/atoms/StatusMessage.stories.tsx",
+      "namedExport": "Error",
+      "meta": {}
+    },
+    "status-message--saving": {
+      "name": "Saving",
+      "levels": [
+        "Status message"
+      ],
+      "locStart": 4,
+      "locEnd": 6,
+      "filePath": "src/components/atoms/StatusMessage.stories.tsx",
+      "namedExport": "Saving",
+      "meta": {}
+    },
+    "status-message--success": {
+      "name": "Success",
+      "levels": [
+        "Status message"
+      ],
+      "locStart": 8,
+      "locEnd": 10,
+      "filePath": "src/components/atoms/StatusMessage.stories.tsx",
+      "namedExport": "Success",
+      "meta": {}
+    },
+    "toggle--default": {
+      "name": "Default",
+      "levels": [
+        "Toggle"
+      ],
+      "locStart": 10,
+      "locEnd": 10,
+      "filePath": "src/components/atoms/Toggle.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "toggle--disabled": {
+      "name": "Disabled",
+      "levels": [
+        "Toggle"
+      ],
+      "locStart": 23,
+      "locEnd": 25,
+      "filePath": "src/components/atoms/Toggle.stories.tsx",
+      "namedExport": "Disabled",
+      "meta": {}
+    },
+    "toggle--disabled-checked": {
+      "name": "Disabled checked",
+      "levels": [
+        "Toggle"
+      ],
+      "locStart": 27,
+      "locEnd": 29,
+      "filePath": "src/components/atoms/Toggle.stories.tsx",
+      "namedExport": "DisabledChecked",
+      "meta": {}
+    },
+    "toggle--with-description": {
+      "name": "With description",
+      "levels": [
+        "Toggle"
+      ],
+      "locStart": 16,
+      "locEnd": 21,
+      "filePath": "src/components/atoms/Toggle.stories.tsx",
+      "namedExport": "WithDescription",
+      "meta": {}
+    },
+    "toggle--with-label": {
+      "name": "With label",
+      "levels": [
+        "Toggle"
+      ],
+      "locStart": 12,
+      "locEnd": 14,
+      "filePath": "src/components/atoms/Toggle.stories.tsx",
+      "namedExport": "WithLabel",
+      "meta": {}
+    },
+    "undo-toast--default": {
+      "name": "Default",
+      "levels": [
+        "Undo toast"
+      ],
+      "locStart": 32,
+      "locEnd": 32,
+      "filePath": "src/components/atoms/UndoToast.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "undo-toast--delete-variant": {
+      "name": "Delete variant",
+      "levels": [
+        "Undo toast"
+      ],
+      "locStart": 38,
+      "locEnd": 55,
+      "filePath": "src/components/atoms/UndoToast.stories.tsx",
+      "namedExport": "DeleteVariant",
+      "meta": {}
+    },
+    "undo-toast--with-extra-action": {
+      "name": "With extra action",
+      "levels": [
+        "Undo toast"
+      ],
+      "locStart": 34,
+      "locEnd": 36,
+      "filePath": "src/components/atoms/UndoToast.stories.tsx",
+      "namedExport": "WithExtraAction",
+      "meta": {}
+    },
+    "sidebar--collapsed": {
+      "name": "Collapsed",
+      "levels": [
+        "Sidebar"
+      ],
+      "locStart": 55,
+      "locEnd": 55,
+      "filePath": "src/components/layout/Sidebar.stories.tsx",
+      "namedExport": "Collapsed",
+      "meta": {}
+    },
+    "sidebar--default": {
+      "name": "Default",
+      "levels": [
+        "Sidebar"
+      ],
+      "locStart": 53,
+      "locEnd": 53,
+      "filePath": "src/components/layout/Sidebar.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "sidebar-collapse-button--collapsed": {
+      "name": "Collapsed",
+      "levels": [
+        "Sidebar collapse button"
+      ],
+      "locStart": 29,
+      "locEnd": 31,
+      "filePath": "src/components/layout/SidebarCollapseButton.stories.tsx",
+      "namedExport": "Collapsed",
+      "meta": {}
+    },
+    "sidebar-collapse-button--expanded": {
+      "name": "Expanded",
+      "levels": [
+        "Sidebar collapse button"
+      ],
+      "locStart": 27,
+      "locEnd": 27,
+      "filePath": "src/components/layout/SidebarCollapseButton.stories.tsx",
+      "namedExport": "Expanded",
+      "meta": {}
+    },
+    "top-bar--default": {
+      "name": "Default",
+      "levels": [
+        "Top bar"
+      ],
+      "locStart": 5,
+      "locEnd": 9,
+      "filePath": "src/components/layout/TopBar.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "top-bar--settings-route": {
+      "name": "Settings route",
+      "levels": [
+        "Top bar"
+      ],
+      "locStart": 11,
+      "locEnd": 15,
+      "filePath": "src/components/layout/TopBar.stories.tsx",
+      "namedExport": "SettingsRoute",
+      "meta": {}
+    },
+    "command-item--active": {
+      "name": "Active",
+      "levels": [
+        "Command item"
+      ],
+      "locStart": 21,
+      "locEnd": 30,
+      "filePath": "src/components/molecules/CommandItem.stories.tsx",
+      "namedExport": "Active",
+      "meta": {}
+    },
+    "command-item--default": {
+      "name": "Default",
+      "levels": [
+        "Command item"
+      ],
+      "locStart": 5,
+      "locEnd": 9,
+      "filePath": "src/components/molecules/CommandItem.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "command-item--list": {
+      "name": "List",
+      "levels": [
+        "Command item"
+      ],
+      "locStart": 32,
+      "locEnd": 38,
+      "filePath": "src/components/molecules/CommandItem.stories.tsx",
+      "namedExport": "List",
+      "meta": {}
+    },
+    "command-item--with-shortcut": {
+      "name": "With shortcut",
+      "levels": [
+        "Command item"
+      ],
+      "locStart": 11,
+      "locEnd": 19,
+      "filePath": "src/components/molecules/CommandItem.stories.tsx",
+      "namedExport": "WithShortcut",
+      "meta": {}
+    },
+    "icon-button-group--default": {
+      "name": "Default",
+      "levels": [
+        "Icon button group"
+      ],
+      "locStart": 5,
+      "locEnd": 13,
+      "filePath": "src/components/molecules/IconButtonGroup.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "icon-button-group--small": {
+      "name": "Small",
+      "levels": [
+        "Icon button group"
+      ],
+      "locStart": 15,
+      "locEnd": 24,
+      "filePath": "src/components/molecules/IconButtonGroup.stories.tsx",
+      "namedExport": "Small",
+      "meta": {}
+    },
+    "list-item--default": {
+      "name": "Default",
+      "levels": [
+        "List item"
+      ],
+      "locStart": 7,
+      "locEnd": 11,
+      "filePath": "src/components/molecules/ListItem.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "list-item--with-leading": {
+      "name": "With leading",
+      "levels": [
+        "List item"
+      ],
+      "locStart": 13,
+      "locEnd": 21,
+      "filePath": "src/components/molecules/ListItem.stories.tsx",
+      "namedExport": "WithLeading",
+      "meta": {}
+    },
+    "list-item--with-trailing": {
+      "name": "With trailing",
+      "levels": [
+        "List item"
+      ],
+      "locStart": 23,
+      "locEnd": 32,
+      "filePath": "src/components/molecules/ListItem.stories.tsx",
+      "namedExport": "WithTrailing",
+      "meta": {}
+    },
+    "page-header--default": {
+      "name": "Default",
+      "levels": [
+        "Page header"
+      ],
+      "locStart": 5,
+      "locEnd": 9,
+      "filePath": "src/components/molecules/PageHeader.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "page-header--with-action": {
+      "name": "With action",
+      "levels": [
+        "Page header"
+      ],
+      "locStart": 11,
+      "locEnd": 18,
+      "filePath": "src/components/molecules/PageHeader.stories.tsx",
+      "namedExport": "WithAction",
+      "meta": {}
+    },
+    "section-header--default": {
+      "name": "Default",
+      "levels": [
+        "Section header"
+      ],
+      "locStart": 7,
+      "locEnd": 9,
+      "filePath": "src/components/molecules/SectionHeader.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "section-header--with-action": {
+      "name": "With action",
+      "levels": [
+        "Section header"
+      ],
+      "locStart": 34,
+      "locEnd": 41,
+      "filePath": "src/components/molecules/SectionHeader.stories.tsx",
+      "namedExport": "WithAction",
+      "meta": {}
+    },
+    "section-header--with-description": {
+      "name": "With description",
+      "levels": [
+        "Section header"
+      ],
+      "locStart": 11,
+      "locEnd": 16,
+      "filePath": "src/components/molecules/SectionHeader.stories.tsx",
+      "namedExport": "WithDescription",
+      "meta": {}
+    },
+    "section-header--with-icon": {
+      "name": "With icon",
+      "levels": [
+        "Section header"
+      ],
+      "locStart": 18,
+      "locEnd": 24,
+      "filePath": "src/components/molecules/SectionHeader.stories.tsx",
+      "namedExport": "WithIcon",
+      "meta": {}
+    },
+    "section-header--with-trailing": {
+      "name": "With trailing",
+      "levels": [
+        "Section header"
+      ],
+      "locStart": 26,
+      "locEnd": 32,
+      "filePath": "src/components/molecules/SectionHeader.stories.tsx",
+      "namedExport": "WithTrailing",
+      "meta": {}
+    },
+    "card-section--danger-variant": {
+      "name": "Danger variant",
+      "levels": [
+        "Card section"
+      ],
+      "locStart": 50,
+      "locEnd": 65,
+      "filePath": "src/components/organisms/CardSection.stories.tsx",
+      "namedExport": "DangerVariant",
+      "meta": {}
+    },
+    "card-section--default": {
+      "name": "Default",
+      "levels": [
+        "Card section"
+      ],
+      "locStart": 7,
+      "locEnd": 13,
+      "filePath": "src/components/organisms/CardSection.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "card-section--with-form": {
+      "name": "With form",
+      "levels": [
+        "Card section"
+      ],
+      "locStart": 34,
+      "locEnd": 48,
+      "filePath": "src/components/organisms/CardSection.stories.tsx",
+      "namedExport": "WithForm",
+      "meta": {}
+    },
+    "card-section--with-header": {
+      "name": "With header",
+      "levels": [
+        "Card section"
+      ],
+      "locStart": 15,
+      "locEnd": 32,
+      "filePath": "src/components/organisms/CardSection.stories.tsx",
+      "namedExport": "WithHeader",
+      "meta": {}
+    },
+    "command-palette--default": {
+      "name": "Default",
+      "levels": [
+        "Command palette"
+      ],
+      "locStart": 21,
+      "locEnd": 21,
+      "filePath": "src/components/organisms/CommandPalette.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "command-palette--open": {
+      "name": "Open",
+      "levels": [
+        "Command palette"
+      ],
+      "locStart": 23,
+      "locEnd": 23,
+      "filePath": "src/components/organisms/CommandPalette.stories.tsx",
+      "namedExport": "Open",
+      "meta": {}
+    },
+    "focused-layout--default": {
+      "name": "Default",
+      "levels": [
+        "Focused layout"
+      ],
+      "locStart": 5,
+      "locEnd": 20,
+      "filePath": "src/components/templates/FocusedLayout.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    },
+    "theme-switcher--default": {
+      "name": "Default",
+      "levels": [
+        "Theme switcher"
+      ],
+      "locStart": 6,
+      "locEnd": 10,
+      "filePath": "src/components/theme/ThemeSwitcher.stories.tsx",
+      "namedExport": "Default",
+      "meta": {}
+    }
+  }
+}
