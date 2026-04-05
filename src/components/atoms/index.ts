@@ -14,6 +14,8 @@ export * from "../ui/UndoToast";
 
 // New atoms
 export * from "./Avatar";
+export * from "./Checkbox";
+export * from "./Tooltip";
 export * from "./Collapsible";
 export * from "./IconButton";
 export * from "./PageTitle";

@@ -3,6 +3,7 @@ import { ChevronDown, PanelLeft, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useSidebarLayout } from "./SidebarLayoutContext";
 import { KbdShortcut } from "../ui/KbdShortcut";
+import { Tooltip } from "../atoms/Tooltip";
 
 export interface SidebarNavItem {
   label: string;
@@ -32,6 +33,7 @@ interface SidebarPrimaryAction {
   icon: ReactNode;
   href?: string;
   onClick?: () => void;
+  shortcut?: string[];
 }
 
 interface SidebarProps {
@@ -136,37 +138,46 @@ export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarP
       </div>
 
       {/* Primary action */}
-      {primaryAction.href ? (
-        <Link
-          to={primaryAction.href}
-          aria-label={primaryAction.label}
-          title={collapsed && !mobileOpen ? primaryAction.label : undefined}
-          onClick={() => setMobileOpen(false)}
-          className={`
-            mb-4 flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
-            max-md:gap-2.5
-            ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
-          `}
-        >
-          <span className="opacity-70">{primaryAction.icon}</span>
-          {(!collapsed || mobileOpen) && primaryAction.label}
-        </Link>
-      ) : (
-        <button
-          type="button"
-          aria-label={primaryAction.label}
-          title={collapsed && !mobileOpen ? primaryAction.label : undefined}
-          onClick={() => { setMobileOpen(false); primaryAction.onClick?.(); }}
-          className={`
-            mb-4 flex items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900 cursor-pointer
-            max-md:gap-2.5
-            ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
-          `}
-        >
-          <span className="opacity-70">{primaryAction.icon}</span>
-          {(!collapsed || mobileOpen) && primaryAction.label}
-        </button>
-      )}
+      {(() => {
+        const showTooltip = !!primaryAction.shortcut && !collapsed && !mobileOpen;
+        const btnClass = `
+          mb-4 flex w-full items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
+          max-md:gap-2.5
+          ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
+        `;
+        const inner = (
+          <>
+            <span className="opacity-70">{primaryAction.icon}</span>
+            {(!collapsed || mobileOpen) && primaryAction.label}
+          </>
+        );
+        const el = primaryAction.href ? (
+          <Link
+            to={primaryAction.href}
+            aria-label={primaryAction.label}
+            title={collapsed && !mobileOpen ? primaryAction.label : undefined}
+            onClick={() => setMobileOpen(false)}
+            className={btnClass}
+          >
+            {inner}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            aria-label={primaryAction.label}
+            title={collapsed && !mobileOpen ? primaryAction.label : undefined}
+            onClick={() => { setMobileOpen(false); primaryAction.onClick?.(); }}
+            className={`cursor-pointer ${btnClass}`}
+          >
+            {inner}
+          </button>
+        );
+        return showTooltip ? (
+          <Tooltip content={<KbdShortcut keys={primaryAction.shortcut!} />} className="relative w-full">
+            {el}
+          </Tooltip>
+        ) : el;
+      })()}
 
       {/* Nav groups */}
       <nav
