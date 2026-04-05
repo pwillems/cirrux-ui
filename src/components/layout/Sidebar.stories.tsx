@@ -1,9 +1,24 @@
 import { useState } from "react";
 import type { Story } from "@ladle/react";
-import { Archive, FilePenLine, Inbox, PenSquare, RefreshCw, Send, Star, Trash2 } from "lucide-react";
+import { Archive, BookUser, Calendar, CalendarDays, FilePenLine, Inbox, Mail, PenSquare, RefreshCw, Send, Star, Trash2 } from "lucide-react";
 import { MemoryRouter } from "react-router-dom";
 import { SidebarLayoutContext } from "./SidebarLayoutContext";
 import { Sidebar } from "./Sidebar";
+
+const appSwitcher = {
+  currentAppId: "mail",
+  apps: [
+    { id: "mail", label: "Mail", icon: <Mail size={15} /> },
+    { id: "contacts", label: "Contacts", icon: <BookUser size={15} /> },
+    { id: "agenda", label: "Agenda", icon: <CalendarDays size={15} /> },
+    { id: "calendar", label: "Calendar", icon: <Calendar size={15} /> },
+  ],
+};
+
+const appSwitcherContacts = {
+  currentAppId: "contacts",
+  apps: appSwitcher.apps,
+};
 
 const primaryAction = {
   label: "Compose",
@@ -49,7 +64,7 @@ function SidebarDemo({ initialCollapsed = false }: { initialCollapsed?: boolean 
         }}
       >
         <div className="relative flex h-screen overflow-hidden">
-          <Sidebar primaryAction={primaryAction} groups={groups} />
+          <Sidebar appSwitcher={appSwitcher} primaryAction={primaryAction} groups={groups} />
         </div>
       </SidebarLayoutContext.Provider>
     </MemoryRouter>
@@ -92,6 +107,7 @@ export const WithFooter: Story = () => (
     >
       <div className="relative flex h-screen overflow-hidden">
         <Sidebar
+          appSwitcher={appSwitcherContacts}
           primaryAction={primaryActionOnClick}
           groups={groups}
           footer={<SyncStatusFooter />}

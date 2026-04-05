@@ -1,23 +1,8 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import {
-  BookUser,
-  Calendar,
-  CalendarDays,
-  ChevronDown,
-  Mail,
-  PanelLeft,
-  X,
-} from "lucide-react";
+import { ChevronDown, PanelLeft, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useSidebarLayout } from "./SidebarLayoutContext";
 import { KbdShortcut } from "../ui/KbdShortcut";
-
-const apps = [
-  { id: "mail", label: "Mail", icon: <Mail size={15} /> },
-  { id: "contacts", label: "Contacts", icon: <BookUser size={15} /> },
-  { id: "agenda", label: "Agenda", icon: <CalendarDays size={15} /> },
-  { id: "calendar", label: "Calendar", icon: <Calendar size={15} /> },
-];
 
 export interface SidebarNavItem {
   label: string;
@@ -33,6 +18,13 @@ export interface SidebarNavGroup {
   items: SidebarNavItem[];
 }
 
+export interface SidebarAppItem {
+  id: string;
+  label: string;
+  icon: ReactNode;
+  onClick?: () => void;
+}
+
 interface SidebarPrimaryAction {
   label: string;
   icon: ReactNode;
@@ -41,12 +33,16 @@ interface SidebarPrimaryAction {
 }
 
 interface SidebarProps {
+  appSwitcher?: {
+    currentAppId: string;
+    apps: SidebarAppItem[];
+  };
   primaryAction: SidebarPrimaryAction;
   groups: SidebarNavGroup[];
   footer?: ReactNode;
 }
 
-export function Sidebar({ primaryAction, groups, footer }: SidebarProps) {
+export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarProps) {
   const { collapsed, toggleCollapsed, mobileOpen, setMobileOpen } =
     useSidebarLayout();
   const [appMenuOpen, setAppMenuOpen] = useState(false);
@@ -79,41 +75,44 @@ export function Sidebar({ primaryAction, groups, footer }: SidebarProps) {
       <div
         className={`mb-6 flex items-center ${collapsed ? "max-md:justify-between md:justify-center" : "justify-between"}`}
       >
-        {(!collapsed || mobileOpen) && (
-          <div className="relative" ref={appMenuRef}>
-            <button
-              type="button"
-              onClick={() => setAppMenuOpen((o) => !o)}
-              className="flex items-center gap-1.5 text-gray-900 hover:text-gray-600 transition-colors cursor-pointer"
-              aria-haspopup="true"
-              aria-expanded={appMenuOpen}
-            >
-              <Mail size={18} />
-              <span className="text-sm font-medium tracking-[0.02em]">
-                Mail
-              </span>
-              <ChevronDown
-                size={13}
-                className={`text-gray-400 transition-transform duration-150 ${appMenuOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {appMenuOpen && (
-              <div className="absolute left-0 top-full z-50 mt-1.5 w-44 rounded-lg border border-gray-100 bg-white py-1 shadow-md">
-                {apps.map((app) => (
-                  <button
-                    key={app.id}
-                    type="button"
-                    onClick={() => setAppMenuOpen(false)}
-                    className={`flex w-full items-center gap-2.5 px-3 py-1.5 text-sm transition-colors hover:bg-gray-50 ${app.id === "mail" ? "font-medium text-gray-900" : "text-gray-500"}`}
-                  >
-                    <span className="opacity-60">{app.icon}</span>
-                    {app.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+        {(!collapsed || mobileOpen) && appSwitcher && (() => {
+          const currentApp = appSwitcher.apps.find(a => a.id === appSwitcher.currentAppId);
+          return (
+            <div className="relative" ref={appMenuRef}>
+              <button
+                type="button"
+                onClick={() => setAppMenuOpen((o) => !o)}
+                className="flex items-center gap-1.5 text-gray-900 hover:text-gray-600 transition-colors cursor-pointer"
+                aria-haspopup="true"
+                aria-expanded={appMenuOpen}
+              >
+                {currentApp && <span className="flex items-center">{currentApp.icon}</span>}
+                <span className="text-sm font-medium tracking-[0.02em]">
+                  {currentApp?.label}
+                </span>
+                <ChevronDown
+                  size={13}
+                  className={`text-gray-400 transition-transform duration-150 ${appMenuOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {appMenuOpen && (
+                <div className="absolute left-0 top-full z-50 mt-1.5 w-44 rounded-lg border border-gray-100 bg-white py-1 shadow-md">
+                  {appSwitcher.apps.map((app) => (
+                    <button
+                      key={app.id}
+                      type="button"
+                      onClick={() => { setAppMenuOpen(false); app.onClick?.(); }}
+                      className={`flex w-full items-center gap-2.5 px-3 py-1.5 text-sm transition-colors hover:bg-gray-50 ${app.id === appSwitcher.currentAppId ? "font-medium text-gray-900" : "text-gray-500"}`}
+                    >
+                      <span className="opacity-60">{app.icon}</span>
+                      {app.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })()}
         {/* Desktop: collapse toggle */}
         <button
           type="button"
