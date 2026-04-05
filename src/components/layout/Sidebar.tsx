@@ -7,7 +7,9 @@ import { KbdShortcut } from "../ui/KbdShortcut";
 export interface SidebarNavItem {
   label: string;
   icon: ReactNode;
-  href: string;
+  href?: string;
+  onClick?: () => void;
+  isActive?: boolean;
   count?: number;
   shortcut?: string[];
   end?: boolean;
@@ -180,68 +182,85 @@ export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarP
             <div
               className={`flex flex-col ${collapsed && !mobileOpen ? "gap-3" : "gap-1"}`}
             >
-              {group.items.map((item) => (
-                <NavLink
-                  key={item.href}
-                  to={item.href}
-                  end={item.end}
-                  onClick={() => setMobileOpen(false)}
-                  className="group"
-                >
-                  {({ isActive }) => (
-                    <div
-                      title={collapsed && !mobileOpen ? item.label : undefined}
-                      className={`
-                        flex items-center justify-between rounded-md py-0.5
-                        text-base transition-colors
-                        ${collapsed && !mobileOpen ? "md:justify-center" : ""}
-                        ${
-                          isActive
-                            ? "font-medium text-gray-900"
-                            : "text-gray-500 hover:text-gray-700"
-                        }
-                      `}
+              {group.items.map((item) => {
+                const itemBody = (isActive: boolean) => (
+                  <div
+                    title={collapsed && !mobileOpen ? item.label : undefined}
+                    className={`
+                      flex items-center justify-between rounded-md py-0.5
+                      text-base transition-colors
+                      ${collapsed && !mobileOpen ? "md:justify-center" : ""}
+                      ${
+                        isActive
+                          ? "font-medium text-gray-900"
+                          : "text-gray-500 hover:text-gray-700"
+                      }
+                    `}
+                  >
+                    <span
+                      className={`flex items-center ${collapsed && !mobileOpen ? "" : "gap-2.5"}`}
                     >
                       <span
-                        className={`flex items-center ${collapsed && !mobileOpen ? "" : "gap-2.5"}`}
+                        className={`opacity-70 transition-transform duration-200 ${collapsed && !mobileOpen ? "scale-110" : "scale-100"}`}
                       >
-                        <span
-                          className={`opacity-70 transition-transform duration-200 ${collapsed && !mobileOpen ? "scale-110" : "scale-100"}`}
-                        >
-                          {item.icon}
-                        </span>
-                        {(!collapsed || mobileOpen) && (
-                          <span>{item.label}</span>
-                        )}
+                        {item.icon}
                       </span>
                       {(!collapsed || mobileOpen) && (
-                          <span className="relative flex items-center">
-                            {item.shortcut ? (
-                              <>
-                                {(item.count ?? 0) > 0 && (
-                                  <span className="absolute inset-0 flex items-center justify-end text-xs opacity-70 group-hover:opacity-0">
-                                    {item.count}
-                                  </span>
-                                )}
-                                <span className="opacity-0 group-hover:opacity-100">
-                                  <KbdShortcut keys={item.shortcut} />
-                                </span>
-                              </>
-                            ) : (item.count ?? 0) > 0 ? (
-                              <span className="text-xs opacity-70">
+                        <span>{item.label}</span>
+                      )}
+                    </span>
+                    {(!collapsed || mobileOpen) && (
+                      <span className="relative flex items-center">
+                        {item.shortcut ? (
+                          <>
+                            {(item.count ?? 0) > 0 && (
+                              <span className="absolute inset-0 flex items-center justify-end text-xs opacity-70 group-hover:opacity-0">
                                 {item.count}
                               </span>
-                            ) : (
-                              <span className="invisible">
-                                <KbdShortcut keys={["X"]} />
-                              </span>
                             )}
+                            <span className="opacity-0 group-hover:opacity-100">
+                              <KbdShortcut keys={item.shortcut} />
+                            </span>
+                          </>
+                        ) : (item.count ?? 0) > 0 ? (
+                          <span className="text-xs opacity-70">
+                            {item.count}
+                          </span>
+                        ) : (
+                          <span className="invisible">
+                            <KbdShortcut keys={["X"]} />
                           </span>
                         )}
-                    </div>
-                  )}
-                </NavLink>
-              ))}
+                      </span>
+                    )}
+                  </div>
+                );
+
+                if (item.href) {
+                  return (
+                    <NavLink
+                      key={item.href}
+                      to={item.href}
+                      end={item.end}
+                      onClick={() => setMobileOpen(false)}
+                      className="group"
+                    >
+                      {({ isActive }) => itemBody(isActive)}
+                    </NavLink>
+                  );
+                }
+
+                return (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={() => { setMobileOpen(false); item.onClick?.(); }}
+                    className="group w-full text-left cursor-pointer"
+                  >
+                    {itemBody(item.isActive ?? false)}
+                  </button>
+                );
+              })}
             </div>
           </div>
         ))}
