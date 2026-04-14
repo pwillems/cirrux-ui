@@ -46,9 +46,13 @@ interface SidebarProps {
   footer?: ReactNode;
 }
 
-export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarProps) {
-  const { collapsed, toggleCollapsed, mobileOpen, setMobileOpen } =
-    useSidebarLayout();
+// ── SidebarContent ────────────────────────────────────────────────────────────
+// Extracted into its own component so desktop and mobile each get independent
+// state + refs — prevents the shared-ref bug where closing the dropdown on
+// mousedown would fire before the item's click handler.
+
+function SidebarContent({ appSwitcher, primaryAction, groups, footer }: SidebarProps) {
+  const { collapsed, toggleCollapsed, mobileOpen, setMobileOpen } = useSidebarLayout();
   const [appMenuOpen, setAppMenuOpen] = useState(false);
   const appMenuRef = useRef<HTMLDivElement>(null);
 
@@ -66,7 +70,7 @@ export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarP
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [appMenuOpen]);
 
-  const sidebarContent = (
+  return (
     <div
       className={`
         top-0 left-0 flex h-screen flex-col overflow-hidden bg-white p-4
@@ -285,15 +289,21 @@ export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarP
       )}
     </div>
   );
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+
+export function Sidebar(props: SidebarProps) {
+  const { mobileOpen, setMobileOpen } = useSidebarLayout();
 
   return (
     <>
-      {/* Desktop sidebar */}
+      {/* Desktop sidebar — has its own SidebarContent instance with its own ref */}
       <aside className="hidden md:block w-[var(--sidebar-width)] shrink-0 transition-[width] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        {sidebarContent}
+        <SidebarContent {...props} />
       </aside>
 
-      {/* Mobile overlay — always rendered, transition-controlled */}
+      {/* Mobile overlay — separate SidebarContent instance with its own ref */}
       <div
         className={`fixed inset-0 z-40 md:hidden ${mobileOpen ? "" : "pointer-events-none"}`}
       >
@@ -304,7 +314,7 @@ export function Sidebar({ appSwitcher, primaryAction, groups, footer }: SidebarP
         <div
           className={`relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${mobileOpen ? "translate-x-0" : "-translate-x-full"}`}
         >
-          {sidebarContent}
+          <SidebarContent {...props} />
         </div>
       </div>
     </>
