@@ -3,3 +3,4 @@ export * from "./IconButtonGroup";
 export * from "./ListItem";
 export * from "./PageHeader";
 export * from "./SectionHeader";
+export * from "./StatCard";
