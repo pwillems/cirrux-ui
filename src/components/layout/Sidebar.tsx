@@ -1,9 +1,31 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { ChevronDown, PanelLeft, X } from "lucide-react";
+import { ChevronDown, Menu, PanelLeft, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useSidebarLayout } from "./SidebarLayoutContext";
 import { KbdShortcut } from "../ui/KbdShortcut";
 import { Tooltip } from "../atoms/Tooltip";
+
+// ── MobileMenuButton ──────────────────────────────────────────────────────────
+// Hamburger button visible only on narrow screens; opens the mobile sidebar
+// overlay. Apps place this in their top bar.
+
+interface MobileMenuButtonProps {
+  className?: string;
+}
+
+export function MobileMenuButton({ className = "" }: MobileMenuButtonProps) {
+  const { setMobileOpen } = useSidebarLayout();
+  return (
+    <button
+      type="button"
+      onClick={() => setMobileOpen(true)}
+      aria-label="Open menu"
+      className={`flex md:hidden h-8 w-8 items-center justify-center rounded-md text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700 cursor-pointer ${className}`}
+    >
+      <Menu size={18} />
+    </button>
+  );
+}
 
 export interface SidebarNavItem {
   label: string;
@@ -75,7 +97,7 @@ function SidebarContent({ appSwitcher, primaryAction, groups, footer }: SidebarP
       className={`
         top-0 left-0 flex h-screen flex-col overflow-hidden bg-white p-4
         transition-[width,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]
-        max-md:absolute max-md:w-60
+        max-md:absolute max-md:w-72
         md:fixed md:w-[var(--sidebar-width)]
       `}
     >
@@ -104,13 +126,13 @@ function SidebarContent({ appSwitcher, primaryAction, groups, footer }: SidebarP
                 />
               </button>
               {appMenuOpen && (
-                <div className="absolute left-0 top-full z-50 mt-1.5 w-44 rounded-lg border border-gray-100 bg-white py-1 shadow-md">
+                <div className="absolute left-0 top-full z-50 mt-1.5 rounded-lg border border-gray-100 bg-white py-1 shadow-md max-md:w-52 md:w-44">
                   {appSwitcher.apps.map((app) => (
                     <button
                       key={app.id}
                       type="button"
                       onClick={() => { setAppMenuOpen(false); app.onClick?.(); }}
-                      className={`flex w-full items-center gap-2.5 px-3 py-1.5 text-sm transition-colors hover:bg-gray-50 ${app.id === appSwitcher.currentAppId ? "font-medium text-gray-900" : "text-gray-500"}`}
+                      className={`flex w-full items-center gap-2.5 px-3 text-sm transition-colors hover:bg-gray-50 max-md:py-2.5 md:py-1.5 ${app.id === appSwitcher.currentAppId ? "font-medium text-gray-900" : "text-gray-500"}`}
                     >
                       <span className="opacity-60">{app.icon}</span>
                       {app.label}
@@ -145,8 +167,8 @@ function SidebarContent({ appSwitcher, primaryAction, groups, footer }: SidebarP
       {(() => {
         const showTooltip = !!primaryAction.shortcut && !collapsed && !mobileOpen;
         const btnClass = `
-          mb-4 flex w-full items-center rounded-md px-2.5 py-1.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
-          max-md:gap-2.5
+          mb-4 flex w-full items-center rounded-md px-2.5 text-sm font-medium text-gray-700 bg-gray-100 transition-colors hover:bg-gray-200 hover:text-gray-900
+          max-md:gap-2.5 max-md:py-2 md:py-1.5
           ${collapsed ? "md:justify-center md:px-0" : "gap-2.5"}
         `;
         const inner = (
@@ -202,8 +224,8 @@ function SidebarContent({ appSwitcher, primaryAction, groups, footer }: SidebarP
                   <div
                     title={collapsed && !mobileOpen ? item.label : undefined}
                     className={`
-                      flex items-center justify-between rounded-md py-0.5
-                      text-base transition-colors
+                      flex items-center justify-between rounded-md text-base transition-colors
+                      max-md:py-1.5 md:py-0.5
                       ${collapsed && !mobileOpen ? "md:justify-center" : ""}
                       ${
                         isActive
